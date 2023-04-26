@@ -1,0 +1,317 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Screening Test</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/logo.png' %}" rel="icon">
+    <link href="{% static 'assets/img/logo.png' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Bootstrap Css -->
+    {% comment %} <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    {% comment %} <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> {% endcomment %}
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <!-- =======================================================
+    * Template Name: Medilab - v4.7.1
+    * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+
+
+
+</head>
+
+
+<body>
+
+  {% include 'app/header.html' %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Take a Mental Health Test</h2>
+          <ol>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li>Take a Test</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+    
+
+    <section class="inner-page">
+      <div class="container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="checkbox-group required" required>
+            <h4><label for="">What is the nature of concern?</label></h4>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Professional" name="concern" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Professional (Work Environment)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Emotional" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Emotional (Anxiety/Stress/Fluctuating emotions)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Relationship" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Relationship
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Motivation" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Lack of Motivation
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Sleep" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Poor sleep/Sleep related concerns
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Performance" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Lack of Performance (Office/Academics/Sports)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Focus" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Inability to focus/concentrate
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Family" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Family related concerns
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="PhysicalChange" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Any kind of physical changes that you've experiences (Surgery/Accident/Injury)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Trauma" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Trauma/Loss (Grief related concerns)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Self" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Self-related concerns (Body positivity/Self-image/Self-confidence)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Substance" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Substance use (Alcohol, drugs etc)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Abuse" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Any kind of sexual or domestic abuse
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Suicidal" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Suicidal ideations/attempts
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Compulsive" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Compulsive behaviours
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Adjust" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Adjustment Issues
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Lonely" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Feeling lonely/ isolated / Socially withdrawn
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="GenderIdentity" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Sexual Orientation / Gender Identity
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Appetite" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Appetite / eating related concerns
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Bully" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Bullying related concerns
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Workplace" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Dissatisfaction at workplace
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="PerformanceBurnOut" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Burn out with performance
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Rehab" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Issue dealing with injury / rehab
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Development" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Developmental Concerns
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="AnimalAbuse" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Behaviour related to abusing animals
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="ImpulseControl" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Poor impulse control
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Psychotic" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Other psychotic concerns (hallucinations/delusions)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Anger" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Poor anger management
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Sibling" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Sibling rivalry
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="BrainFog" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Brain Fog
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="NegativePeer" name="concern" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Negative peer associates
+              </label>
+            </div>
+            <div class="form-group form-check">
+              {% comment %} <input class="form-check-input" type="checkbox" value="Others" name="concern" id="flexCheckChecked"> {% endcomment %}
+              <label for="exampleFormControlTextarea1">Any Other Reasons:</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="otherReason"></textarea>
+            </div>
+          </div>
+            <br>
+            <input class="btn btn-primary" type="submit" value="Next" onclick="handleData();">
+        </form>    
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+    {% include 'app/footer.html' %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      function handleData() {
+      var otherMsg = document.querySelector("textarea");
+      var form_data = new FormData(document.querySelector("form"));
+      if(!(form_data.has("concern"))) {
+        alert("Please select atleast one option");
+       
+      }
+      return false;
+}
+    </script>
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/purecounter/purecounter.js' %}"></script>
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</body>
+</html>

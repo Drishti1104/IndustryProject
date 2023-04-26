@@ -1,0 +1,375 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title></title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/logo.png' %}" rel="icon">
+    <link href="{% static 'assets/img/logo.png' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    
+
+    <!-- Bootstrap Css -->
+    {% comment %} <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+    <!-- DataTables -->
+    <link href="{% static 'assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet"
+        type="text/css" />
+    <link href="{% static 'assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" rel="stylesheet"
+        type="text/css" /> 
+
+    <!-- Responsive datatable examples -->
+    <link href="{% static 'assets/vendor/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}"
+        rel="stylesheet" type="text/css" />
+
+    {% comment %} <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> {% endcomment %}
+
+    
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <!-- =======================================================
+    * Template Name: Medilab - v4.7.1
+    * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+
+
+
+</head>
+
+<body>
+
+  {% include 'app/header.html' %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Screening Test Data</h2>
+          <ol>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li>Screening Test Data</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+    <section class="services">
+        <div class="container">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Screening Test Data</h2>
+            </div>
+            <div class="card-body">
+              <table id="datatable-buttons" class="table table-bordered w-100">
+                <thead>
+                  <tr>
+                    <th>Sr. No.</th>
+                    <th>Email</th>
+                    <th>Nature of Concern</th>
+                    <th>Level of Physical Fitness</th>
+                    <th>Level of Stress</th>
+                    <th>How urgently do you require help?</th>
+                  </tr>
+                  <tr>
+                    <td id="0"></td>
+                    <td id="1"></td>
+                    <td id="2"></td>
+                    <td id="3"></td>
+                    <td id="4"></td>
+                    <td id="5"></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for i in data1 %}
+                  <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.nature_of_concern}}&nbsp;{{i.otherReason}}</td>
+                    <td>{{i.physicalFitness}}</td>
+                    <td>{{i.stress}}</td>
+                    <td>{{i.help}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  </main><!-- End #main -->
+
+    {% include 'app/footer.html' %}
+
+  {% comment %} <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script> {% endcomment %}
+ 
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/purecounter/purecounter.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+
+  <!-- Required datatable js -->
+  <script src="{% static 'assets/vendor/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+  <!-- Buttons examples -->
+  <script src="{% static 'assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/jszip/jszip.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/pdfmake/build/pdfmake.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/pdfmake/build/vfs_fonts.js' %}"></script>
+  <script src="{% static 'assets/vendor/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/datatables.net-buttons/js/buttons.colVis.min.js' %}"></script>
+
+  <!-- Responsive examples -->
+  <script src="{% static 'assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+  <script>
+
+    $(document).ready(function () {
+        $("#datatable").DataTable(),
+            $("#datatable-buttons").DataTable({
+                orderCellsTop: true,
+                fixedHeader: true,
+                lengthChange: !1,
+                 dom: 'Blrtip',
+                 buttons: ["copy", "excel", "csv", {
+                  extend: 'pdfHtml5',
+                  orientation: 'landscape',
+                  pageSize: 'LEGAL'
+                 },
+                 "colvis", "pageLength"
+                 ],
+                initComplete: function () {
+                    this.api().columns(0).every(function () {
+                        var column = this;
+                        var select = $('<select class="form-select"><option value=""></option></select>')
+                            .appendTo("#datatable-buttons thead tr #0")
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search(val ? '^' + val + '$' : '', true, false)
+                                    .draw();
+                            });
+
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                    })
+                    this.api().columns(1).every(function () {
+                        var column = this;
+                        var select = $('<select class="form-select"><option value=""></option></select>')
+                            .appendTo("#datatable-buttons thead tr #1")
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search(val ? '^' + val + '$' : '', true, false)
+                                    .draw();
+                            });
+
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                    })
+                    this.api().columns(2).every(function () {
+                        var column = this;
+                        var select = $('<select class="form-select"><option value=""></option></select>')
+                            .appendTo("#datatable-buttons thead tr #2")
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search(val ? '^' + val + '$' : '', true, false)
+                                    .draw();
+                            });
+
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                    })
+                    this.api().columns(3).every(function () {
+                        var column = this;
+                        var select = $('<select class="form-select"><option value=""></option></select>')
+                            .appendTo("#datatable-buttons thead tr #3")
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search(val ? '^' + val + '$' : '', true, false)
+                                    .draw();
+                            });
+
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                    })
+                    this.api().columns(4).every(function () {
+                      var column = this;
+                      var select = $('<select class="form-select"><option value=""></option></select>')
+                          .appendTo("#datatable-buttons thead tr #4")
+                          .on('change', function () {
+                              var val = $.fn.dataTable.util.escapeRegex(
+                                  $(this).val()
+                              );
+
+                              column
+                                  .search(val ? '^' + val + '$' : '', true, false)
+                                  .draw();
+                          });
+
+                      column.data().unique().sort().each(function (d, j) {
+                          select.append('<option value="' + d + '">' + d + '</option>')
+                      });
+                  })
+                  this.api().columns(5).every(function () {
+                    var column = this;
+                    var select = $('<select class="form-select"><option value=""></option></select>')
+                        .appendTo("#datatable-buttons thead tr #5")
+                        .on('change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+
+                            column
+                                .search(val ? '^' + val + '$' : '', true, false)
+                                .draw();
+                        });
+
+                    column.data().unique().sort().each(function (d, j) {
+                        select.append('<option value="' + d + '">' + d + '</option>')
+                    });
+                })
+              }
+            }).buttons().container().appendTo("#datatable-buttons_wrapper .col-md-6:eq(0)"),
+            $(".dataTables_length select").addClass("form-select form-select-sm");
+    });
+
+</script>
+
+
+
+</body>
+</html>
+
+{% comment %} <h2>
+            Question Description
+          </h2> {% endcomment %}
+
+          {% comment %} <table class="table table-bordered" style="width:100%">
+            <thead>
+              <tr>
+                <th>Question No.</th>
+                <th>Question Description</th>
+              </tr>
+              <tbody>
+                <tr>
+                  <td>Q1</td>
+                  <td>Overall how would you rate your physical health?</td>
+                </tr>
+                <tr>
+                  <td>Q2</td>
+                  <td>How would you rank your mental wellness all around?</td>
+                </tr>
+                <tr>
+                  <td>Q3</td>
+                  <td>Has your physical health caused you any issues at work or in your daily life over the last four weeks?</td>
+                </tr>
+                <tr>
+                  <td>Q4</td>
+                  <td>During the past 4 weeks, have you had any problems with your work or daily life due to any emotional problems, such as feeling depressed, sad or anxious?</td>
+                </tr>
+                <tr>
+                  <td>Q5</td>
+                  <td>How often has your mental health affected your ability to get work done?</td>
+                </tr>
+                <tr>
+                  <td>Q6</td>
+                  <td>Have you felt particularly low or down for more than 2 weeks in a row?</td>
+                </tr>
+                <tr>
+                  <td>Q7</td>
+                  <td>Are you going through a tough emotional situation?</td>
+                </tr>
+                <tr>
+                  <td>Q8</td>
+                  <td>How often do you smoke?</td>
+                </tr>
+                <tr>
+                  <td>Q9</td>
+                  <td>How often do you drink?</td>
+                </tr>
+                <tr>
+                  <td>Q10</td>
+                  <td>What is your relationship status?</td>
+                </tr>
+                <tr>
+                  <td>Q11</td>
+                  <td>How many hours do you sleep per day?</td>
+                </tr>
+                <tr>
+                  <td>Q12</td>
+                  <td>Have you changed your job recently?</td>
+                </tr>
+                <tr>
+                  <td>Q13</td>
+                  <td>Do you do any physical activity other than normal travelling?</td>
+                </tr>
+              </tbody>
+            </thead>
+          </table> {% endcomment %}

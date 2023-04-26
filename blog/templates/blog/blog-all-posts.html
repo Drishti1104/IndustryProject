@@ -1,0 +1,329 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Blog</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'blog/images/favicon2.ico' %}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'blog/css/blog-home.css' %}" rel="stylesheet" />
+        <link href="{% static 'blog/css/style.css' %}" rel="stylesheet" />
+        <link rel="stylesheet" href="{% static 'blog/boxicons/css/boxicons.min.css' %}">
+        <link href="{% static 'blog/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'blog/css/post.css' %}">
+        <link rel="stylesheet" href="{% static 'blog/css/all-posts.css' %}">
+        <link rel="stylesheet" href="{% static 'blog/css/footer.css' %}">
+
+        <style>
+            .card:hover {
+                transform:scale(1.1);
+                box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+              }
+        </style>
+
+        <style>
+            #google_translate_element select {
+                {% comment %} background: #383ffa; {% endcomment %}
+                color: black;
+                border: none;
+                border-radius: 3px;
+                padding: 15px;
+                margin-top: 1.5rem;
+                font-size: 1rem;
+            }
+      
+            .goog-logo-link {
+                display: none !important;
+            }
+      
+            .goog-te-gadget {
+                color: transparent !important;
+            }
+      
+            .goog-te-banner-frame {
+                display: none !important;
+            }
+      
+            #goog-gt-tt,
+            .goog-te-balloon-frame {
+                display: none !important;
+            }
+      
+            .goog-text-highlight {
+                background: none !important;
+                box-shadow: none !important;
+            }
+            .VIpgJd-ZVi9od-l4eHX-hSRGPd {
+            display: none;
+            }
+            .skiptranslate {
+            color: white;
+            }
+        </style>
+      
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'en',
+                    includedLanguages: 'bn,bho,gu,hi,kn,kok,ml,mr,ne,or,pa,sa,sd,ta,te,ur,en,',
+                }, 'google_translate_element'
+                );
+            }
+        </script>
+      
+      
+        <script type="text/javascript"
+          src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+        </script>
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        {% comment %} <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#!">Start Bootstrap</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav> {% endcomment %}
+
+        <!-- ======= Top Bar ======= -->
+        <div id="topbar" class="d-flex align-items-center fixed-top">
+            <div class="container d-flex justify-content-between">
+            <div class="contact-info d-flex align-items-center">
+                <i class="bi bi-envelope"></i> <a href="mailto:mental.wellness.mind.matters@gmail.com">mental.wellness.mind.matters@gmail.com</a>
+                <i class="bi bi-phone"></i> +91 9558955488
+            </div>
+            <div class="d-none d-lg-flex social-links align-items-center">
+                <div id="google_translate_element" style="text-align: right;" class="text-right"></div>
+                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+            </div>
+            </div>
+        </div> <!-- End Topbar -->
+
+        <!-- Header -->
+        <header id="header" class="fixed-top">
+            <div class="container d-flex align-items-center">
+
+            <h1 class="logo me-auto"><a href="{% url 'index' %}">Mental Wellness - Mind Matters</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                <li><a class="nav-link scrollto" href="{% url 'blog:starting-page' %}">Home</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'about-us' %}">About</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'blog:posts-page' %}">All Posts</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+            {% if 'isUser' in request.session %}
+                <a href="{% url 'logout' %}" class="appointment-btn scrollto">Logout</a>
+            {% endif %}
+            <div>
+        </header> <!-- End Header -->
+
+        <!-- Page header with logo and tagline-->
+            <header class="bg-light border-bottom mb-4">
+                <div class="container">
+                    <div class="text-center my-5">
+                        {% comment %} <h1 class="fw-bolder">Welcome to Blog Home!</h1> {% endcomment %}
+                        {% comment %} <p class="lead mb-0">A Bootstrap 5 starter layout for your next blog homepage</p> {% endcomment %}
+                    </div>
+                </div>
+            </header>
+        <!-- Page content-->
+        {% comment %} <div class="container">
+            <div class="row d-flex justify-content-center"> {% endcomment %}
+                <!-- Blog entries-->
+                {% comment %} <div class="col-lg-12"> {% endcomment %}
+                    <!-- Featured blog post-->
+                    {% comment %} <div class="card mb-4">
+                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                        <div class="card-body">
+                            <div class="small text-muted">January 1, 2022</div>
+                            <h2 class="card-title">Featured Post Title</h2>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                            <a class="btn btn-primary" href="#!">Read more →</a>
+                        </div>
+                    </div> {% endcomment %}
+                    <!-- Nested row for non-featured blog posts-->
+                    {% comment %} <div class="row">
+                        {% for post in posts %}
+                            <div class="col-lg-4">
+                                <!-- Blog post-->
+                                <div class="card mb-4">
+                                    <a href="{% url 'blog:post-detail-page' post.slug %}"><img class="card-img-top" src="{{ post.image.url }}" alt="..." /></a>
+                                    <div class="card-body">
+                                        <div class="small text-muted">{{ post.date|date:'d M Y' }}</div>
+                                        <h2 class="card-title h4">{{ post.title }}</h2>
+                                        <p class="card-text">{{ post.excerpt }}</p>
+                                        <a class="btn btn-primary" href="{% url 'blog:post-detail-page' post.slug %}">Read more →</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div> {% endcomment %}
+                    <section id="all-posts">
+                        <h2>All Posts</h2>
+                        <ul>
+                            {% for post in all_posts %}
+                                {% include 'blog/include/post.html' %}
+                            {% endfor %}
+                        </ul>
+                    </section>
+                    {% comment %} <!-- Pagination-->
+                    <nav aria-label="Pagination">
+                        <hr class="my-0" />
+                        <ul class="pagination justify-content-center my-4">
+                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
+                            <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#!">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#!">3</a></li>
+                            <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
+                            <li class="page-item"><a class="page-link" href="#!">15</a></li>
+                            <li class="page-item"><a class="page-link" href="#!">Older</a></li>
+                        </ul>
+                    </nav> {% endcomment %}
+                {% comment %} </div> {% endcomment %}
+                {% comment %} <!-- Side widgets-->
+                <div class="col-lg-4"> {% endcomment %}
+                    <!-- Search widget-->
+                    {% comment %} <div class="card mb-4">
+                        <div class="card-header">Search</div>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                            </div>
+                        </div>
+                    </div> {% endcomment %}
+                    <!-- Categories widget-->
+                    {% comment %} <div class="card mb-4">
+                        <div class="card-header">Categories</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li><a href="#!">Web Design</a></li>
+                                        <li><a href="#!">HTML</a></li>
+                                        <li><a href="#!">Freebies</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li><a href="#!">JavaScript</a></li>
+                                        <li><a href="#!">CSS</a></li>
+                                        <li><a href="#!">Tutorials</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Side widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">Side Widget</div>
+                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+                    </div>
+                </div> {% endcomment %}
+            {% comment %} </div>
+        </div>  {% endcomment %}
+            <!-- ======= Footer ======= -->
+        <footer id="footer">
+
+            <div class="footer-top">
+            <div class="container">
+                {% comment %} <div class="row">
+        
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h3>Medilab</h3>
+                    <p>
+                    A108 Adam Street <br>
+                    New York, NY 535022<br>
+                    United States <br><br>
+                    <strong>Phone:</strong> +1 5589 55488 55<br>
+                    <strong>Email:</strong> info@example.com<br>
+                    </p>
+                </div>
+        
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+        
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                    </ul>
+                </div>
+        
+                <div class="col-lg-4 col-md-6 footer-newsletter">
+                    <h4>Join Our Newsletter</h4>
+                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                    <form action="" method="post">
+                    <input type="email" name="email"><input type="submit" value="Subscribe">
+                    </form>
+                </div>
+        
+                </div> 
+            </div>
+            </div>{% endcomment %}
+        
+            <div class="container d-md-flex py-4">
+        
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                &copy; Copyright <strong><span></span></strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/ -->
+                {% comment %} Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> {% endcomment %}
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+            </div>
+        </footer><!-- End Footer -->
+            {% comment %} <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+        </footer> {% endcomment %}
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'blog/js/blog-home.js' %}"></script>
+    </body>
+</html>

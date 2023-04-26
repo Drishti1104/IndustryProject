@@ -1,0 +1,97 @@
+{% load static %}
+<!-- css for google translate -->
+  <style>
+    #google_translate_element select {
+        {% comment %} background: #383ffa; {% endcomment %}
+        color: black;
+        border: none;
+        border-radius: 3px;
+        padding: 15px;
+        margin-top: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .goog-logo-link {
+        display: none !important;
+    }
+
+    .goog-te-gadget {
+        color: transparent !important;
+    }
+
+    .goog-te-banner-frame {
+        display: none !important;
+    }
+
+    #goog-gt-tt,
+    .goog-te-balloon-frame {
+        display: none !important;
+    }
+
+    .goog-text-highlight {
+        background: none !important;
+        box-shadow: none !important;
+    }
+    .VIpgJd-ZVi9od-l4eHX-hSRGPd {
+    display: none;
+    }
+    .skiptranslate {
+    color: white;
+    }
+</style>
+
+<!-- js for google translate -->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'bn,bho,gu,hi,kn,kok,ml,mr,ne,or,pa,sa,sd,ta,te,ur,en,',
+        }, 'google_translate_element'
+        );
+    }
+</script>
+<script type="text/javascript"
+  src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+
+<!-- ======= Top Bar ======= -->
+<div id="topbar" class="d-flex align-items-center fixed-top">
+  <div class="container d-flex justify-content-between">
+    <div class="contact-info d-flex align-items-center">
+      <i class="bi bi-envelope"></i> <a href="mailto:mental.wellness.mind.matters@gmail.com">mental.wellness.mind.matters@gmail.com</a>
+      {% comment %} <i class="bi bi-phone"></i> +91 9558955488 {% endcomment %}
+    </div>
+    <div class="d-none d-lg-flex social-links align-items-center">
+      <div id="google_translate_element" style="text-align: right;" class="text-right"></div>
+      <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+    </div>
+  </div>
+</div> <!-- End Topbar -->
+
+<!-- Header -->
+<header id="header" class="fixed-top">
+  <div class="container d-flex align-items-center collapse navbar-collapse">
+
+    <h1 class="logo me-auto"><a href="{% url 'index' %}">Mental Wellness - Mind Matters</a></h1>
+    <!-- Uncomment below if you prefer to use an image logo -->
+    {% comment %} <a href="{% url 'index' %}" class="logo me-auto"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a> {% endcomment %}
+
+    <nav id="navbar" class="navbar order-last order-lg-0">
+      <ul>
+        <li><a class="nav-link scrollto" href="{% url 'index' %}">Home</a></li>
+        <li><a class="nav-link scrollto" href="{% url 'about-us' %}">About</a></li>
+        {% if request.session.isUser == 'user' %}
+          <li><a href="{% url 'doctor-details' %}" class="nav-link scrollto">Make an Appointment</a></li>
+          <li><a href="{% url 'trackappointment' %}" class="nav-link scrollto">Track Your Appointment</a></li>
+        {% endif %}
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+    {% if 'isUser' in request.session %}
+      <a href="{% url 'logout' %}" class="appointment-btn scrollto">Logout</a>
+    {% endif %}
+  <div>
+</header> <!-- End Header -->

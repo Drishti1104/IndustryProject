@@ -1,0 +1,336 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Appointment</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/logo.png' %}" rel="icon" />
+    <link href="{% static 'assets/img/logo.png' %}" rel="apple-touch-icon"/>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" 
+    rel="stylesheet"/>
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet"/>
+    <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet"/>
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet"/>
+
+    <!-- Bootstrap Css -->
+    {% comment %}
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+    {% endcomment %}
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    {% comment %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+    {% endcomment %}
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" />
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <!-- =======================================================
+    * Template Name: Medilab - v4.7.1
+    * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+  </head>
+
+  <body>
+    {% include 'app/header.html' %}
+
+    <main id="main">
+      <!-- ======= Breadcrumbs Section ======= -->
+      <section class="breadcrumbs">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>Psychologist/Psychiatrist Panel</h2>
+            <ol>
+              <li><a href="{% url 'index' %}">Home</a></li>
+              <li>Psychologist/Psychiatrist Panel</li>
+            </ol>
+          </div>
+          {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+      </section>
+      <!-- End Breadcrumbs Section -->
+      {% comment %} <section class="breadcrumbs">
+        <div class="container">
+          <div>
+            
+          </div>
+        </div>
+      </section><!-- End Breadcrumbs Section --> {% endcomment %}
+      <!-- ======= Doctors Section ======= -->
+      <section id="doctors" class="doctors">
+        <div class="container">
+          <div class="section-title">
+            <h2>Psychologists / Psychiatrists</h2>
+            <p>To schedule an appointment please select any one Psychiatrist/Psychologist</p>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4 mb-4">
+              <div class="card">
+                <img class="card-img-top mx-auto d-block" data-toggle="modal" data-target="#modal1"
+                  src="{% static 'assets/img/doctors/doctors-2.jpg' %}" style="width: 285px" alt="" />
+                <div class="card-body">
+                  <h4 class="card-title text-center">Shaneela Gharat</h4>
+                  <p class="text-center">Sports Psychologist</p>
+                  <hr class="mx-1" />
+                  <p class="card-text">
+                    <b>Qualification:</b> Master's Degree in Sports and Exercise
+                    Psychology from Loughborough University, England
+                  </p>
+                  <p class="card-text"><b>Age:</b> 24</p>
+                  <p class="card-text"><b>Gender:</b> Female</p>
+                  <p class="card-text"><b>Location:</b> <address> B2/102, Serenity Complex,<br> 
+                    next to City International school, off Link Road, <br>
+                    Oshiwara, Jogeshwari West, Mumbai 400102 </address>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+              <div class="card">
+                <img class="card-img-top mx-auto d-block" data-toggle="modal" data-target="#modal2"
+                  src="{% static 'assets/img/doctors/doctors-1.jpg' %}" style="width: 285px" alt="" />
+                <div class="card-body">
+                  <h4 class="card-title text-center">Doctor 2</h4>
+                  <p class="text-center">Clinical Psychologist</p>
+                  <hr class="mx-1" />
+                  <p class="card-text">
+                    <b>Qualification:</b> Master's Degree in Clinical
+                    Psychology
+                  </p>
+                  <p class="card-text"><b>Age:</b> 45</p>
+                  <p class="card-text"><b>Gender:</b> Male</p>
+                  <p class="card-text"><b>Location:</b> <address> B2/102, Serenity Complex,<br> 
+                    next to City International school, off Link Road, <br>
+                    Oshiwara, Jogeshwari West, Mumbai 400102 </address>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+              <div class="card">
+                <img class="card-img-top mx-auto d-block" data-toggle="modal" data-target="#modal3"
+                  src="{% static 'assets/img/doctors/doctors-4.jpg' %}" style="width: 285px" alt="" />
+                <div class="card-body">
+                  <h4 class="card-title text-center">Doctor 3</h4>
+                  <p class="text-center">Industrial Psychologist</p>
+                  <hr class="mx-1" />
+                  <p class="card-text">
+                    <b>Qualification:</b> Master's Degree in Industrial
+                    Psychology
+                  </p>
+                  <p class="card-text"><b>Age:</b> 30</p>
+                  <p class="card-text"><b>Gender:</b> Female</p>
+                  <p class="card-text"><b>Location:</b> <address> B2/102, Serenity Complex,<br> 
+                    next to City International school, off Link Road, <br>
+                    Oshiwara, Jogeshwari West, Mumbai 400102 </address>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {% comment %} <div class="row">
+            <div class="col-lg-4 mb-4">
+              <div class="card">
+                <img class="card-img-top mx-auto d-block" data-toggle="modal" data-target="#modal1"
+                  src="{% static 'assets/img/doctors/doctors-1.jpg' %}" style="width: 285px" alt="" />
+                <div class="card-body">
+                  <h4 class="card-title text-center">Doctor 4</h4>
+                  <p class="text-center">Sports Psychologist</p>
+                  <hr class="mx-1" />
+                  <p class="card-text">
+                    <b>Qualification:</b> Master's Degree in Sports and Exercise
+                    Psychology from Loughborough University, England
+                  </p>
+                  <p class="card-text"><b>Age:</b> 24</p>
+                  <p class="card-text"><b>Gender:</b> Female</p>
+                  <p class="card-text"><b>Location:</b> <address> B2/102, Serenity Complex,<br> 
+                    next to City International school, off Link Road, <br>
+                    Oshiwara, Jogeshwari West, Mumbai 400102 </address>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+              <div class="card">
+                <img class="card-img-top mx-auto d-block" data-toggle="modal" data-target="#modal2"
+                  src="{% static 'assets/img/doctors/doctors-4.jpg' %}" style="width: 285px" alt="" />
+                <div class="card-body">
+                  <h4 class="card-title text-center">Doctor 2</h4>
+                  <p class="text-center">Clinical Psychologist</p>
+                  <hr class="mx-1" />
+                  <p class="card-text">
+                    <b>Qualification:</b> Master's Degree in Sports and Exercise
+                    Psychology from Loughborough University, England
+                  </p>
+                  <p class="card-text"><b>Age:</b> 45</p>
+                  <p class="card-text"><b>Gender:</b> Male</p>
+                  <p class="card-text"><b>Location:</b> <address> B2/102, Serenity Complex,<br> 
+                    next to City International school, off Link Road, <br>
+                    Oshiwara, Jogeshwari West, Mumbai 400102 </address>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+              <div class="card">
+                <img class="card-img-top mx-auto d-block" data-toggle="modal" data-target="#modal2"
+                  src="{% static 'assets/img/doctors/doctors-3.jpg' %}" style="width: 285px" alt="" />
+                <div class="card-body">
+                  <h4 class="card-title text-center">Doctor 2</h4>
+                  <p class="text-center">Clinical Psychologist</p>
+                  <hr class="mx-1" />
+                  <p class="card-text">
+                    <b>Qualification:</b> Master's Degree in Sports and Exercise
+                    Psychology from Loughborough University, England
+                  </p>
+                  <p class="card-text"><b>Age:</b> 45</p>
+                  <p class="card-text"><b>Gender:</b> Male</p>
+                  <p class="card-text"><b>Location:</b> <address> B2/102, Serenity Complex,<br> 
+                    next to City International school, off Link Road, <br>
+                    Oshiwara, Jogeshwari West, Mumbai 400102 </address>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div> {% endcomment %}
+
+          <!-- Modal -->
+          <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Book Appointment?
+                  </h5>
+                </div>
+                <div class="modal-body">
+                  <b>Available Time Slots</b><br>
+                  Monday - 9am to 6pm<br>
+                  Tuesday - Not available<br>
+                  Wednesday - 9am to 6pm<br>
+                  Thursday - 9am to 6pm<br>
+                  Friday - 9am to 6pm<br>
+                  Saturday - 9am to 6pm<br>
+                  Sunday - Holiday<br><br>
+                  <p>Do you want to proceed to book an appointment?</p>
+                </div>
+                <div class="modal-footer">
+                  <a href="{% url 'appointment' %}"><button type="button" class="btn btn-primary">Yes</button></a>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Book Appointment?
+                  </h5>
+                </div>
+                <div class="modal-body">
+                  <b>Available Time Slots</b><br>
+                  Monday - 9am to 5pm<br>
+                  Tuesday - 9am to 5pm<br>
+                  Wednesday - 9am to 5pm<br>
+                  Thursday - 9am to 5pm<br>
+                  Friday - 9am to 5pm<br>
+                  Saturday - Not available<br>
+                  Sunday - Holiday<br><br>
+                  Do you want to proceed to book an appointment?
+                </div>
+                <div class="modal-footer">
+                  <a href="{% url 'appointment' %}"><button type="button" class="btn btn-primary">Yes</button></a>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Book Appointment?
+                  </h5>
+                </div>
+                <div class="modal-body">
+                  <b>Available Time Slots</b><br>
+                  Monday - 10am to 5pm<br>
+                  Tuesday - 10am to 5pm<br>
+                  Wednesday - 10am to 5pm<br>
+                  Thursday - Not available<br>
+                  Friday - 10am to 5pm<br>
+                  Saturday - 10am to 5pm<br>
+                  Sunday - Holiday<br><br>
+                  Do you want to proceed to book an appointment?
+                </div>
+                <div class="modal-footer">
+                  <a href="{% url 'appointment' %}"><button type="button" class="btn btn-primary">Yes</button></a>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Doctors Section -->
+    </main>
+    <!-- End #main -->
+
+    {% include 'app/footer.html' %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <div id="preloader"></div>
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/purecounter/purecounter.js' %}"></script>
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </body>
+</html>

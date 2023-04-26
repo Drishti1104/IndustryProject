@@ -1,0 +1,41 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+Create Post
+{% endblock %}
+
+{% block content %}
+<div>
+    <form action="{% url 'create-post' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-left">
+    <div class="form-group" "col-md-6">
+      <label for="InputName">Blog Title</label>
+      <input type="text" class="form-control" id="blog-title" name="title" aria-describedby="emailHelp" placeholder="Enter blog title" required>
+    </div>
+    <br>
+    <div class="form-group" "col-md-6">
+      <label for="InputEmail">Image</label>
+      <input type="file" class="form-control" id="blog-image" name="image" aria-describedby="emailHelp" placeholder="select image" required>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="InputDOB">Blog Content</label>
+      <input type="textarea" class="form-control" id="content" name="content" aria-describedby="emailHelp" placeholder="Enter blog content" required>
+    </div> 
+    <br>
+    <div class="form-group">
+      <label for="InputMobile">Author</label>
+      <input type="text" class="form-control" id="author" name="author" aria-describedby="emailHelp" placeholder="Enter author name" required>
+    </div><br>
+    </div>
+    <br>
+  </div>
+    {% comment %} <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div> {% endcomment %}
+    <button type="submit" class="btn btn-primary" onclick="Validate()">Submit</button>
+  </form>
+</div>
+  {% endblock %}

@@ -1,0 +1,375 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title></title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/logo.png' %}" rel="icon">
+    <link href="{% static 'assets/img/logo.png' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Bootstrap Css -->
+    {% comment %} <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    {% comment %} <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> {% endcomment %}
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <!-- =======================================================
+    * Template Name: Medilab - v4.7.1
+    * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+
+
+
+</head>
+<body>
+  
+  {% include 'app/header.html' %}
+
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Results Page</h2>
+          <ol>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li>Results</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+    <section class="services">
+      <div class="container">
+        {{results.score}}
+        <div class="row">
+          <div class="col">
+        <div class="card">
+          <div class="card-header">
+              <h4>Little interest or pleasure in doing things</h4>
+          </div>
+          <div class="card-body">
+              <div>
+                  <canvas height="175px" id="bar1"></canvas>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-header">
+              <h4>Poor appetite or overeating</h4>
+          </div>
+          <div class="card-body">
+              <div>
+                  <canvas height="175px" id="bar2"></canvas>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+    <div class="col">
+        <div class="card">
+          <div class="card-header">
+              <h4>Trouble concentrating on things, such as reading the newspaper or watching television</h4>
+          </div>
+          <div class="card-body">
+              <div>
+                  <canvas height="175px" id="bar3"></canvas>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-header">
+              <h4>Thoughts that you would be better off dead, or of hurting yourself</h4>
+          </div>
+          <div class="card-body">
+              <div>
+                  <canvas height="175px" id="bar4"></canvas>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+    {% include 'app/footer.html' %}
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      var ctx1 = document.getElementById("bar1").getContext('2d');
+      var myChart1 = new Chart(ctx1, {
+        type: 'bar',
+          data: {
+              labels: ["Not at all", "Several days", "More than half the days", "Nearly everyday"],
+              datasets: [
+              {
+                  label: '18yrs-24yrs',
+                  data: ['{{q1_0_18}}', '{{q1_1_18}}', '{{q1_2_18}}', '{{q1_3_18}}'],
+                  backgroundColor: [
+                    'rgba(255, 99, 132, 1)',
+                  ],
+                  borderColor: [
+                    'rgba(255, 99, 132, 3)',
+                  ],
+                  borderWidth: 1
+              },
+              {
+                label: '25yrs-39yrs',
+                data: ['{{q1_0_25}}', '{{q1_1_25}}', '{{q1_2_25}}', '{{q1_3_25}}'],
+                backgroundColor: [
+                  'rgba(54, 162, 235, 1)',
+                ],
+                borderColor: [
+                  'rgba(54, 162, 235, 3)',
+                ],
+                borderWidth: 1
+            },
+            {
+              label: '>=40yrs',
+              data: ['{{q1_0_40}}', '{{q1_1_40}}', '{{q1_2_40}}', '{{q1_3_40}}'],
+              backgroundColor: [
+                'rgba(153, 102, 255, 1)',
+              ],
+              borderColor: [
+                'rgba(153, 102, 255, 3)',
+              ],
+              borderWidth: 1
+          },
+              ]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero:true
+                      }
+                  }]
+              }
+          }
+      });
+    
+      var ctx2 = document.getElementById("bar2").getContext('2d');
+      var myChart2 = new Chart(ctx2, {
+        type: 'bar',
+          data: {
+              labels: ["Not at all", "Several days", "More than half the days", "Nearly everyday"],
+              datasets: [
+              {
+                  label: '18yrs-24yrs',
+                  data: ['{{q5_0_18}}', '{{q5_1_18}}', '{{q5_2_18}}', '{{q5_3_18}}'],
+                  backgroundColor: [
+                    'rgba(255, 99, 132, 1)',
+                  ],
+                  borderColor: [
+                    'rgba(255, 99, 132, 3)',
+                  ],
+                  borderWidth: 1
+              },
+              {
+                label: '25yrs-39yrs',
+                data: ['{{q5_0_25}}', '{{q5_1_25}}', '{{q5_2_25}}', '{{q5_3_25}}'],
+                backgroundColor: [
+                  'rgba(54, 162, 235, 1)',
+                ],
+                borderColor: [
+                  'rgba(54, 162, 235, 3)',
+                ],
+                borderWidth: 1
+            },
+            {
+              label: '>=40yrs',
+              data: ['{{q5_0_40}}', '{{q5_1_40}}', '{{q5_2_40}}', '{{q5_3_40}}'],
+              backgroundColor: [
+                'rgba(153, 102, 255, 1)',
+              ],
+              borderColor: [
+                'rgba(153, 102, 255, 3)',
+              ],
+              borderWidth: 1
+          },
+              ]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero:true
+                      }
+                  }]
+              }
+          }
+      });
+    
+      var ctx3 = document.getElementById("bar3").getContext('2d');
+      var myChart3 = new Chart(ctx3, {
+        type: 'bar',
+          data: {
+              labels: ["Not at all", "Several days", "More than half the days", "Nearly everyday"],
+              datasets: [
+              {
+                  label: '18yrs-24yrs',
+                  data: ['{{q7_0_18}}', '{{q7_1_18}}', '{{q7_2_18}}', '{{q7_3_18}}'],
+                  backgroundColor: [
+                    'rgba(255, 99, 132, 1)',
+                  ],
+                  borderColor: [
+                    'rgba(255, 99, 132, 3)',
+                  ],
+                  borderWidth: 1
+              },
+              {
+                label: '25yrs-39yrs',
+                data: ['{{q7_0_25}}', '{{q7_1_25}}', '{{q7_2_25}}', '{{q7_3_25}}'],
+                backgroundColor: [
+                  'rgba(54, 162, 235, 1)',
+                ],
+                borderColor: [
+                  'rgba(54, 162, 235, 3)',
+                ],
+                borderWidth: 1
+            },
+            {
+              label: '>=40yrs',
+              data: ['{{q7_0_40}}', '{{q7_1_40}}', '{{q7_2_40}}', '{{q7_3_40}}'],
+              backgroundColor: [
+                'rgba(153, 102, 255, 1)',
+              ],
+              borderColor: [
+                'rgba(153, 102, 255, 3)',
+              ],
+              borderWidth: 1
+          },
+              ]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero:true
+                      }
+                  }]
+              }
+          }
+      });
+    
+      var ctx4 = document.getElementById("bar4").getContext('2d');
+      var myChart4 = new Chart(ctx4, {
+        type: 'bar',
+          data: {
+              labels: ["Not at all", "Several days", "More than half the days", "Nearly everyday"],
+              datasets: [
+              {
+                  label: '18yrs-24yrs',
+                  data: ['{{q9_0_18}}', '{{q9_1_18}}', '{{q9_2_18}}', '{{q9_3_18}}'],
+                  backgroundColor: [
+                    'rgba(255, 99, 132, 1)',
+                  ],
+                  borderColor: [
+                    'rgba(255, 99, 132, 3)',
+                  ],
+                  borderWidth: 1
+              },
+              {
+                label: '25yrs-39yrs',
+                data: ['{{q9_0_25}}', '{{q9_1_25}}', '{{q9_2_25}}', '{{q9_3_25}}'],
+                backgroundColor: [
+                  'rgba(54, 162, 235, 1)',
+                ],
+                borderColor: [
+                  'rgba(54, 162, 235, 3)',
+                ],
+                borderWidth: 1
+            },
+            {
+              label: '>=40yrs',
+              data: ['{{q9_0_40}}', '{{q9_1_40}}', '{{q9_2_40}}', '{{q9_3_40}}'],
+              backgroundColor: [
+                'rgba(153, 102, 255, 1)',
+              ],
+              borderColor: [
+                'rgba(153, 102, 255, 3)',
+              ],
+              borderWidth: 1
+          },
+              ]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero:true
+                      }
+                  }]
+              }
+          }
+      });
+    </script>
+    
+    {% comment %} <script src="{% static 'assets/js/chart.js' %}" type="text/javascript"></script> {% endcomment %}
+    {% comment %} <script src="{% static 'assets/js/chartjs.min.js' %}"></script> {% endcomment %}
+    
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/purecounter/purecounter.js' %}"></script>
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,255 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Blog</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'blog/images/favicon2.ico' %}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'blog/css/blog-home.css' %}" rel="stylesheet" />
+        <link href="{% static 'blog/css/style.css' %}" rel="stylesheet" />
+        <link rel="stylesheet" href="{% static 'blog/boxicons/css/boxicons.min.css' %}">
+        <link href="{% static 'blog/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'blog/css/post.css' %}">
+        <link rel="stylesheet" href="{% static 'blog/css/all-posts.css' %}">
+        <link rel="stylesheet" href="{% static 'blog/css/footer.css' %}">
+
+        <style>
+            .card:hover {
+                transform:scale(1.1);
+                box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+              }
+        </style>
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        {% comment %} <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#!">Start Bootstrap</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav> {% endcomment %}
+
+        <!-- ======= Top Bar ======= -->
+        <div id="topbar" class="d-flex align-items-center fixed-top">
+            <div class="container d-flex justify-content-between">
+            <div class="contact-info d-flex align-items-center">
+                <i class="bi bi-envelope"></i> <a href="mailto:mental.wellness.mind.matters@gmail.com">mental.wellness.mind.matters@gmail.com</a>
+                <i class="bi bi-phone"></i> +91 9558955488
+            </div>
+            <div class="d-none d-lg-flex social-links align-items-center">
+                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+            </div>
+            </div>
+        </div> <!-- End Topbar -->
+
+        <!-- Header -->
+        <header id="header" class="fixed-top">
+            <div class="container d-flex align-items-center">
+
+            <h1 class="logo me-auto"><a href="{% url 'index' %}">Mental Wellness - Mind Matters</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                <li><a class="nav-link scrollto" href="{% url 'blog:starting-page' %}">Home</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'about-us' %}">About</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'blog:posts-page' %}">All Posts</a></li>
+                </ul>
+            </nav>
+            <div>
+        </header> <!-- End Header -->
+
+        <!-- Page header with logo and tagline-->
+            <header class="bg-light border-bottom mb-4">
+                <div class="container">
+                    <div class="text-center my-5">
+                        {% comment %} <h1 class="fw-bolder">Welcome to Blog Home!</h1> {% endcomment %}
+                        {% comment %} <p class="lead mb-0">A Bootstrap 5 starter layout for your next blog homepage</p> {% endcomment %}
+                    </div>
+                </div>
+            </header>
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        {% comment %} <section class="breadcrumbs">
+            <div class="container">
+    
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Registration</h2>
+                <ol>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li>Registration</li>
+                </ol>
+            </div>
+    
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+     {% endcomment %}
+        <!-- Page content-->
+        <section class="inner-page create-post" >
+            <div class="container">
+              <div>
+              {% comment %} <div>
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                  {{ message }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+                {% endif %}
+              </div> {% endcomment %}
+              <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-left">
+                <div class="form-group">
+                  <label for="InputName">Blog Title</label>
+                  <input type="text" class="form-control" id="blog-title" name="title" aria-describedby="emailHelp" placeholder="Enter blog title" required>
+                </div>
+                <br>
+                <div class="form-group">
+                  {% comment %} <label for="InputEmail">Image</label> {% endcomment %}
+                  {% comment %} <input type="file" class="form-control" id="blog-image" name="image" aria-describedby="emailHelp" placeholder="select image" required> {% endcomment %}
+                  {{ post_form.as_p }}
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for="InputDOB">Blog Content</label>
+                  <input type="textarea" class="form-control" id="content" name="content" aria-describedby="emailHelp" placeholder="Enter blog content" required>
+                </div> 
+                <br>
+                <div class="form-group">
+                  <label for="InputMobile">Author</label>
+                  <input type="text" class="form-control" id="author" name="author" aria-describedby="emailHelp" placeholder="Enter author name" required>
+                  {% comment %} <select name="author" id="author" class="form-control" required>
+                    <option value="" selected="False" style="display: none">Select Author </option> 
+                    {% for i in author %}
+                        <option value="{{ i.first_name }}">{{ i.first_name }} {{ i.last_name }}</option>
+                    {% endfor %}
+                  </select> {% endcomment %}
+                </div><br>
+                </div>
+                <br>
+              </div>
+                {% comment %} <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div> {% endcomment %}
+                <button type="submit" class="btn btn-primary" onclick="Validate()">Submit</button>
+              </form>
+              <div>
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  {{ message }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+                {% endif %}
+              </div>
+            </div>
+            </div>
+            
+          </section>
+    </main>
+            <!-- ======= Footer ======= -->
+        <footer id="footer">
+
+            <div class="footer-top">
+            <div class="container">
+                {% comment %} <div class="row">
+        
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h3>Medilab</h3>
+                    <p>
+                    A108 Adam Street <br>
+                    New York, NY 535022<br>
+                    United States <br><br>
+                    <strong>Phone:</strong> +1 5589 55488 55<br>
+                    <strong>Email:</strong> info@example.com<br>
+                    </p>
+                </div>
+        
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+        
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                    </ul>
+                </div>
+        
+                <div class="col-lg-4 col-md-6 footer-newsletter">
+                    <h4>Join Our Newsletter</h4>
+                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                    <form action="" method="post">
+                    <input type="email" name="email"><input type="submit" value="Subscribe">
+                    </form>
+                </div>
+        
+                </div> 
+            </div>
+            </div>{% endcomment %}
+        
+            <div class="container d-md-flex py-4">
+        
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                &copy; Copyright <strong><span></span></strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/ -->
+                {% comment %} Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> {% endcomment %}
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+            </div>
+        </footer><!-- End Footer -->
+            {% comment %} <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+        </footer> {% endcomment %}
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'blog/js/blog-home.js' %}"></script>
+    </body>
+</html>

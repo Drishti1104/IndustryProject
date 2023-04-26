@@ -1,0 +1,14 @@
+<li>
+    <article class="post">
+        {% comment %} <a href="{% url 'post-detail-page' post.slug %}"> {% endcomment %}
+            <img src="{{ dr.image.url }}" alt="{{ dr.fname }}">
+            <div class="post__content">
+                <h3>{{ dr.fname }} {{ dr.lname }}</h3>
+                <h4>{{ dr.qualification }}</h4>
+                <p>
+                    {{ dr.description }}
+                </p>
+            </div>
+        </a>
+    </article>
+</li>
